@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: white;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #2c2c2c;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-wrap: wrap;
+}
+
+/* Menú lateral */
+.barra_lateral {
+    width: 15vw;
+    background-color: #141414;
+    border-right: 0.3vw solid #ff0000;
+    display: flex;
+    flex-direction: column;
+    padding: 1.3vw;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 1.3vw;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.bienvenido {
+    font-size: 1.25vw; 
+    font-weight: bold;
+    margin-bottom: 0.35vh; 
+    margin-left: 1.74vw; 
+}
+
+.x {
+    color: #ff0000;
+    margin-bottom: 1.39vw; 
+    margin-left: 0.69vw; 
+}
+
+nav a {
+    font-size: 1.25vw; 
+    display: flex;
+    align-items: center;
+    gap: 0.69vw; 
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1.04vw; 
+    margin-top: 5%;
+}
+
+nav a:hover {
+    color: #ff0000;
+}
+
+.salir {
+    font-size: 1.18vw;
+    margin-top: auto;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.7vw;
+}
+
+.salir:hover {
+    color: #ff0000;
+}
+
+/* Contenido principal */
+.contenido {
+    flex: 1;
+    padding: 1.5vw;
+}
+
+.contenido h1 {
+    font-size: 2vw;
+    margin-bottom: 0.7vw;
+}
+
+.descripcion {
+    font-size: 1.1vw;
+    color: #ccc;
+    margin-bottom: 1.5vw;
+}
+
+/* Buscador */
+.buscador {
+    display: flex;
+    align-items: center;
+    gap: 0.7vw;
+    margin-bottom: 1.5vw;
+}
+
+.buscador label {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.buscador input {
+    padding: 0.6vw 0.8vw;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    min-width: 12vw;
+}
+
+.btn-mas {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 0.6vw 0.8vw;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2vw;
+}
+
+.btn-mas:hover {
+    background-color: #cc0000;
+}
+
+/* Tabla */
+.tabla-clientes {
+    background: white;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    border-collapse: collapse;
+}
+
+.tabla-clientes input {
+    width: 100%;
+    padding: 4%;
+    border: none;
+    height: 100%;
+    box-sizing: border-box; 
+    outline: none;
+}
+
+.tabla-clientes th,
+.tabla-clientes td {
+    border: 2px solid red;
+    padding: 0.6vw;
+    text-align: center;
+}
+
+.tabla-clientes th {
+    color: red;
+    font-weight: bold;
+}
+
+.tabla-clientes td i {
+    color: #ff0000;
+    margin: 0 0.4vw;
+    cursor: pointer;
+}

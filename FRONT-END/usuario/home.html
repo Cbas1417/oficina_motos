@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajería y difusión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container scroll-invisible">
+        <!-- Menu-->
+        <header class="barra_lateral">
+            <div class="logo">
+                <img src="" alt="logo">
+            </div>
+            <p class="bienvenido">Bienvenido</p>
+            <p class="x">XXXXXXXXXXXXXXX</p>
+            <nav>
+                <a href="home.html"><i class="fa-solid fa-comment"></i> Difusión</a>
+                <a href="clientes.html"><i class="fa-solid fa-users"></i> Clientes</a>
+                <a href="#"><i class="fa-solid fa-user"></i> Usuarios</a>
+            </nav>
+            <a href="log.html" class="salir"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
+        </header>
+
+        <!-- Contenido -->
+        <main class="contenido">
+            <h1>Mensajería y difusión</h1>
+            <p class="descripcion">
+                Nuestro módulo de difusión te permite enviar mensajes masivos a todos tus clientes o grupos seleccionados en segundos.
+                Comparte anuncios, recordatorios o promociones de forma rápida, clara y segura, asegurando que tu mensaje llegue a cada destinatario sin complicaciones.
+            </p>
+
+            <div class="buscador">
+                <label for="buscar">BUSCAR:</label>
+                <input type="text" id="buscar" placeholder="¿Qué buscas?...">
+                <button class="btn-mas" id="abrirModal"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <!-- Modal -->
+            <div class="modal" id="modal">
+                <form class="modal-content scroll-invisible" id="formulario">
+                    <!-- Botón cerrar -->
+                    <span class="cerrar" id="close">&times;</span>
+
+                    <h2 id="tituloModal">CREAR MENSAJE</h2>
+
+                    <!-- inputs mensaje-->
+                    <label for="titulo">Titulo del mensaje</label>
+                    <input type="text" id="titulo" name="titulo" required>
+
+                    <label for="descripcion">Descripción del mensaje</label>
+                    <input type="text" id="descripcion" name="descripcion" required>
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+
+                    <p class="section_v">¿Cada cuanto se van a enviar?</p>
+                    <div class="opciones">
+                        <label><input type="radio" name="frecuencia"> Cada semana</label>
+                        <label><input type="radio" name="frecuencia"> Cada 2 semanas</label>
+                        <label><input type="radio" name="frecuencia"> Cada mes</label>
+                        <label><input type="radio" name="frecuencia"> Cada 3 meses</label>
+                        <label><input type="radio" name="frecuencia"> Cada 6 meses</label>
+                        <label><input type="radio" name="frecuencia"> Cada 9 meses</label>
+                        <label><input type="radio" name="frecuencia"> Cada año</label>
+                    </div>
+
+                    <!-- Aviso vencimiento -->
+                    <p class="section_v">
+                        ¿Cada cuanto antes de la fecha de vencimiento?<br>
+                        <span>(solo para aviso de SOAT)</span>
+                    </p>
+                    <div class="opciones">
+                        <label><input type="radio" name="aviso"> 1 día antes</label>
+                        <label><input type="radio" name="aviso"> 3 días antes</label>
+                        <label><input type="radio" name="aviso"> 1 semana antes</label>
+                        <label><input type="radio" name="aviso"> 2 semanas antes</label>
+                        <label><input type="radio" name="aviso"> 1 mes antes</label>
+                        <label><input type="radio" name="aviso"> 2 meses antes</label>
+                        <label><input type="radio" name="aviso"> 3 meses antes</label>
+                        <label><input type="radio" name="aviso"> 6 meses antes</label>
+                    </div>
+
+                    <!-- Botón CREAR -->
+                    <button class="crear" id="Up" type="submit">CREAR</button>
+                </form>
+            </div>
+            <!-- Mensajes -->
+            <div id="mensajes">
+
+            </div>
+        </main>
+        <script src="home.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clientes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="clientes.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Menú lateral -->
+      <header class="barra_lateral">
+        <div class="logo">
+          <img src="logo.png" alt="logo" />
+        </div>
+        <p class="bienvenido">Bienvenido</p>
+        <p class="x">XXXXXXXXXXXXXXX</p>
+        <nav>
+          <a href="home.html"><i class="fa-solid fa-comment"></i> Difusión</a>
+          <a href="clientes.html"><i class="fa-solid fa-users"></i> Clientes</a>
+          <a href="#"><i class="fa-solid fa-user"></i> Usuarios</a>
+        </nav>
+        <a href="log.html" class="salir"
+          ><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a
+        >
+      </header>
+
+      <!-- Contenido -->
+      <main class="contenido">
+        <h1>Clientes</h1>
+        <p class="descripcion">
+          Con nuestro módulo de clientes podrás gestionar de manera sencilla y
+          ordenada todos los datos de tus contactos y mantener su información
+          siempre actualizada. Más control, menos complicaciones.
+        </p>
+
+        <!-- Buscador -->
+        <div class="buscador">
+          <label for="buscar">BUSCAR:</label>
+          <input type="text" id="buscar" placeholder="¿A quién buscas?..." />
+          <button class="btn-mas" id="add"><i class="fa-solid fa-plus"></i></button>
+        </div>
+
+        <!-- Tabla -->
+        <table class="tabla-clientes">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Placa</th>
+            <th>Fecha registro</th>
+            <th>Fecha fin</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody id="clientes-body">
+        <!-- Aquí se insertan las filas dinámicamente -->
+    </tbody>
+</table>
+
+<script src="clientes.js"></script>
+
+        <script src="main.js"></script>
+      </main>
+    </div>
+
+    <script src="clientes.js"></script>
+  </body>
+</html>

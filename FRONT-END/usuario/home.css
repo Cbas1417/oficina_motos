@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;    
+}
+
+body {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #2c2c2c;
+}
+
+/* Aplica a cualquier contenedor desplazable */
+.scroll-invisible {
+  overflow-y: auto;              
+  scrollbar-width: none;       
+  -ms-overflow-style: none;    
+}
+
+
+.scroll-invisible::-webkit-scrollbar {
+  width: 0;
+  height: 0;                   
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal .modal-content {
+  max-height: 90vh;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  width: 350px;
+  position: relative;
+}
+
+/* Botón cerrar */
+.modal .cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  color: red;
+  cursor: pointer;
+}
+
+/* Título */
+.modal .modal-content h2 {
+  text-align: center;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: bold;
+}
+
+.modal label {
+  display: block;
+  margin: 8px 0 3px;
+  font-size: 14px;
+  color: red;
+}
+
+/* Inputs */
+.modal input[type="text"],
+.modal textarea {
+  background-color: #aeaeae;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.modal textarea {
+  height: 70px;
+  resize: none;
+}
+
+.modal input[type="radio"] {
+  cursor: pointer;
+}
+
+.modal .section_v {
+  margin: 15px 0 5px;
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.modal .section_v span {
+  font-size: 12px;
+  color: red;
+  font-weight: bold;
+}
+
+/* Opciones en columnas */
+.modal .opciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.modal .opciones label {
+  color: black;
+  font-weight: normal;
+}
+
+/* Botón CREAR */
+.modal .crear {
+  display: block;
+  width: 120px;
+  margin: 15px auto 0;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+/* Menú lateral */
+.barra_lateral {
+  width: 15.27vw;
+  background-color: #141414;
+  border-right: 0.28vw solid #ff0000;
+  display: flex;
+  flex-direction: column;
+  padding: 1.39vw;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 1.39vw;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5vw;
+}
+
+.bienvenido {
+  font-size: 1.25vw;
+  font-weight: bold;
+  margin-bottom: 0.35vh;
+  margin-left: 1.74vw;
+}
+
+.x {
+  color: #ff0000;
+  margin-bottom: 1.39vw;
+  margin-left: 0.69vw;
+}
+
+nav a {
+  font-size: 1.25vw;
+  display: flex;
+  align-items: center;
+  gap: 0.69vw;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 1.04vw;
+  margin-top: 5%;
+}
+
+nav a:hover {
+  color: #ff0000;
+}
+
+.salir {
+  font-size: 1.18vw;
+  margin-top: auto;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.69vw;
+}
+
+.salir:hover {
+  color: #ff0000;
+}
+
+/* Contenido principal */
+.contenido {
+  flex: 1;
+  padding: 1.39vw;
+}
+
+.contenido h1 {
+  font-size: 1.94vw;
+  margin-bottom: 0.69vw;
+}
+
+.descripcion {
+  font-size: 1.1vw;
+  color: #ccc;
+  margin-bottom: 1.39vw;
+}
+
+/* Buscador */
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 0.69vw;
+  margin-bottom: 1.39vw;
+  flex-wrap: wrap;
+}
+
+.buscador label {
+  font-weight: bold;
+  color: #ff0000;
+}
+
+.buscador input {
+  padding: 0.56vw 0.69vw;
+  border-radius: 2.08vw;
+  border: none;
+  outline: none;
+  flex: none;
+  min-width: 10.4vw;
+}
+
+.btn-mas {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 0.56vw 0.69vw;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.11vw;
+}
+
+.btn-mas:hover {
+  background-color: #ff0000;
+}
+
+/* Mensajes */
+.mensajes,
+.mensaje {
+  width: 90%;
+  margin-left: 5%;
+  height: 23%;
+  background-color: white;
+  color: black;
+  padding: 1.04vw;
+  border-radius: 0.83vw;
+  margin-bottom: 1.04vw;
+  position: relative;
+}
+
+.mensajes h2,
+.mensaje h2 {
+  font-size: 1.11vw;
+  color: #ff0000;
+  margin-bottom: 0.35vh;
+}
+
+.mensajes p,
+.mensaje p {
+  font-size: 0.97vw;
+  margin-bottom: 0.35vh;
+}
+
+.mensajes i,
+.mensaje i {
+  position: absolute;
+  top: 0.69vw;
+  right: 0.69vw;
+  color: #ff0000;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .barra_lateral {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-right: none;
+    border-bottom: 0.28vw solid #ff0000;
+  }
+
+  nav {
+    display: flex;
+    gap: 1.04vw;
+    flex-wrap: wrap;
+  }
+
+  .contenido {
+    padding: 1.04vw;
+  }
+
+  .logo {
+    max-width: 20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .barra_lateral {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    font-size: 0.97vw;
+  }
+
+  .contenido h1 {
+    font-size: 1.53vw;
+  }
+
+  .buscador input {
+    width: 100%;
+  }
+
+  .logo {
+    max-width: 40%;
+  }
+}
