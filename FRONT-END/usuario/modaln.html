@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Crear Mensaje</title>
+    <link rel="stylesheet" href="modaln.css">
+</head>
+
+<body>
+    <div class="modal">
+        <form class="modal-content scroll-invisible">
+            <span class="close">&times;</span>
+            <h2>CREAR MENSAJE</h2>
+
+            <label for="titulo">Título del mensaje:</label>
+            <input type="text" id="titulo" required>
+
+            <label for="descripcion">Descripción del mensaje:</label>
+            <input type="text" id="descripcion" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" required></textarea>
+
+            <label for="frecuencia">¿Cada cuánto se van a enviar?</label>
+            <select class="frecuencias" id="frecuencia" required>
+                <option value="diario">Diario</option>
+                <option value="semanal">Semanal</option>
+                <option value="mensual">Mensual</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+
+            <div id="personalizadoConfig" class="linea" style="display:none;">
+                <label for="dias">Se envía cada (en días):</label>
+                <input class="dias" type="number" id="dias" min="1" max="31" value="1">
+            </div>
+
+            <div class="soat">
+                <label for="tipo">Tipo de mensaje:</label>
+                <select class="tipo" id="tipo">
+                    <option value="general">General</option>
+                    <option value="soat">Recordatorio de SOAT</option>
+                </select>
+            </div>
+
+            <div id="soatConfig" style="display:none;">
+                <div class="titulo">Configuración Recordatorio de SOAT</div>
+
+                <div class="linea">
+                    <label class="cantidadr" for="cantidad">Cantidad de recordatorios antes del vencimiento:</label>
+                    <input type="number" class="cantidad" id="cantidadRecordatorios" min="1" max="10" value="1">
+                </div>
+
+                <div id="recordatoriosContainer"></div>
+            </div>
+
+            <button class="btn">CREAR</button>
+        </form>
+    </div>
+    <script src="modaln.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Registro SOAT</title>
+    <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+
+    <!-- Modal -->
+    <div class="modal">
+        <form class="modal-content scroll-invisible">
+            <span class="cerrar">&times;</span>
+            <h2>REGISTRO DE SOAT</h2>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="fecha_inscripcion">Fecha de inscripción al SOAT</label>
+            <input type="date" id="fecha_inscripcion" name="fecha_inscripcion" required>
+
+            <label for="fecha_vencimiento">Fecha de vencimiento del SOAT</label>
+            <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" required>
+
+            <label for="tipo_vehiculo">Tipo de Vehículo</label>
+            <input type="text" id="tipo_vehiculo" name="tipo_vehiculo" required>
+
+            <label for="cobro">Cobro</label>
+            <input type="number" id="cobro" name="cobro" step="1" required>
+
+            <label for="celular">Celular</label>
+            <input type="tel" id="celular" name="celular" required>
+
+            <label for="empleado">Empleado que registra</label>
+            <input type="text" id="empleado" name="empleado" required>
+
+            <label for="lugar">Lugar de registro del vehículo</label>
+            <input type="text" id="lugar" name="lugar" required>
+
+            <button class="crear" type="submit">CREAR</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

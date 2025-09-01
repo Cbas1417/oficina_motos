@@ -6,13 +6,21 @@
 }
 
 body {
-    background-color: #1e1e1e;
+    background-color: #141414;
     color: white;
-}
-body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #2c2c2c;
+}
+
+.scroll-invisible {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scroll-invisible::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .container {
@@ -42,26 +50,26 @@ body {
 }
 
 .bienvenido {
-    font-size: 1.25vw; 
+    font-size: 1.25vw;
     font-weight: bold;
-    margin-bottom: 0.35vh; 
-    margin-left: 1.74vw; 
+    margin-bottom: 0.35vh;
+    margin-left: 1.74vw;
 }
 
 .x {
     color: #ff0000;
-    margin-bottom: 1.39vw; 
-    margin-left: 0.69vw; 
+    margin-bottom: 1.39vw;
+    margin-left: 0.69vw;
 }
 
 nav a {
-    font-size: 1.25vw; 
+    font-size: 1.25vw;
     display: flex;
     align-items: center;
-    gap: 0.69vw; 
+    gap: 0.69vw;
     color: white;
     text-decoration: none;
-    margin-bottom: 1.04vw; 
+    margin-bottom: 1.04vw;
     margin-top: 5%;
 }
 
@@ -132,7 +140,7 @@ nav a:hover {
 }
 
 .btn-mas:hover {
-    background-color: #cc0000;
+    background-color: #ff0000;
 }
 
 /* Tabla */
@@ -149,20 +157,32 @@ nav a:hover {
     padding: 4%;
     border: none;
     height: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     outline: none;
 }
 
 .tabla-clientes th,
 .tabla-clientes td {
-    border: 2px solid red;
+    border: 2px solid #ff0000;
     padding: 0.6vw;
     text-align: center;
 }
 
 .tabla-clientes th {
-    color: red;
+    color: #ff0000;
     font-weight: bold;
+}
+
+.tabla-clientes .cobro {
+    width: 10%;
+}
+
+.tabla-clientes .celular {
+    width: 10%;
+}
+
+.tabla-clientes .nombre {
+    width: 12%;
 }
 
 .tabla-clientes td i {
