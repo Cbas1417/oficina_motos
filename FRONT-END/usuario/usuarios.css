@@ -172,16 +172,13 @@ nav a:hover {
     font-weight: bold;
 }
 
-.tabla-clientes .cobro {
-    width: 10%;
-}
 
 .tabla-clientes .celular {
     width: 10%;
 }
 
 .tabla-clientes .nombre {
-    width: 12%;
+    width: 20%;
 }
 
 .tabla-clientes td i {
@@ -189,6 +186,7 @@ nav a:hover {
     margin: 0 0.4vw;
     cursor: pointer;
 }
+
 .tabla-clientes .id{
     width: 7%;
 }

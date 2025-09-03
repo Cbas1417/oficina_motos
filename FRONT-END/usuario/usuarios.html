@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuarios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="usuarios.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- Menú lateral -->
+        <header class="barra_lateral">
+            <div class="logo">
+                <img src="logo.png" alt="logo" />
+            </div>
+            <p class="bienvenido">Bienvenido</p>
+            <p class="x">XXXXXXXXXXXXXXX</p>
+            <nav>
+                <a href="home.html"><i class="fa-solid fa-comment"></i> Difusión</a>
+                <a href="clientes.html"><i class="fa-solid fa-users"></i> Clientes</a>
+                <a href="usuarios.html"><i class="fa-solid fa-user"></i> Usuarios</a>
+            </nav>
+            <a href="log.html" class="salir"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
+        </header>
+
+        <!-- modal -->
+        <div id="modalContainer" class="scroll-invisible"></div>
+
+        <main class="contenido">
+            <h1>Usuarios</h1>
+            <p class="descripcion">
+                Con nuestro módulo de usuarios podrás administrar fácilmente las cuentas y accesos de tu equipo, asegurando que cada persona tenga la información y permisos adecuados. Más organización, mayor control.
+            </p>
+
+            <!-- Buscador -->
+            <div class="buscador">
+                <label for="buscar">BUSCAR:</label>
+                <input type="text" id="buscar" placeholder="¿A quién buscas?..." />
+                <button class="btn-mas" id="add"><i class="fa-solid fa-plus"></i></button>
+            </div>
+
+            <!-- Tabla -->
+            <table class="tabla-clientes">
+                <thead>
+                    <tr>
+                        <th class="id">ID</th>
+                        <th class="nombre">Nombre completo</th>
+                        <th class="nombre">Nombre de usuario</th>
+                        <th>Correo</th>
+                        <th>contraseña</th>
+                        <th class="celular">Celular</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="clientes-cuerpo">
+                </tbody>
+            </table>
+
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="usuarios.js"></script>
+    <script src="modalu.js"></script>
+
+</body>
+
+</html>

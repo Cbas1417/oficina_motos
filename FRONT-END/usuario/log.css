@@ -3,11 +3,11 @@
     padding: 0;
     box-sizing: border-box;
     outline: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
     min-height: 100vh;
-    font-family: 'Montserrat', sans-serif;
     background: linear-gradient(-45deg, #ffffff 25%, #373737 25%, #373737 75%, #ff0000 75%);
     display: flex;
     justify-content: center;
