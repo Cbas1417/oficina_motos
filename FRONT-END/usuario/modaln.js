@@ -85,8 +85,8 @@
         input.classList.add("dv");
         input.name = `recordatorio_${i}`;
         input.placeholder = `Días antes del vencimiento (${i})`;
-        input.min = "1";
-        input.value = "1";
+        input.min = "1";   
+        input.value = "1"; 
         div.appendChild(label);
         div.appendChild(input);
         recordatoriosContainer.appendChild(div);
@@ -104,11 +104,6 @@
 
     let menu = document.createElement("div");
     menu.id = "placeholderMenu";
-    menu.style.position = "absolute";
-    menu.style.display = "none";
-    menu.style.background = "#fff";
-    menu.style.border = "1px solid #ccc";
-    menu.style.zIndex = "9999";
     document.body.appendChild(menu);
 
     function showMenu() {
@@ -120,8 +115,6 @@
         const item = document.createElement("div");
         item.textContent = `${key} → ${desc}`;
         item.dataset.value = key;
-        item.style.padding = "5px 10px";
-        item.style.cursor = "pointer";
         item.onclick = () => {
           insertPlaceholder(key);
           hideMenu();
@@ -129,9 +122,10 @@
         menu.appendChild(item);
       });
 
+      // Mostrar debajo del textarea
       menu.style.display = "block";
       menu.style.left = `${rect.left + window.scrollX}px`;
-      menu.style.top = `${rect.bottom + window.scrollY}px`;
+      menu.style.top = `${rect.bottom + window.scrollY + 5}px`;
       menu.style.width = `${rect.width}px`;
     }
 
@@ -163,11 +157,11 @@
 
     if (mensajeInput) {
       mensajeInput.addEventListener("keyup", (e) => {
-        const textBefore = mensajeInput.value.slice(0, mensajeInput.selectionStart);
-
         if (e.key === "@") {
           showMenu();
-        } else if (!textBefore.includes("@") || e.key === "Escape") {
+        } else if (e.key === "Escape") {
+          hideMenu();
+        } else if (!mensajeInput.value.includes("@")) {
           hideMenu();
         }
       });
@@ -314,6 +308,10 @@
     if (!modal) return;
     modal.style.display = "none";
     modal.style.pointerEvents = "none";
+
+    // 🔥 Cerrar también el menú de placeholders
+    const menu = document.getElementById("placeholderMenu");
+    if (menu) menu.style.display = "none";
   }
 
   document.addEventListener("click", async (e) => {
