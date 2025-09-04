@@ -58,6 +58,7 @@
     const personalizadoConfig = modal.querySelector("#personalizadoConfig");
     const cantRecInput = modal.querySelector("#cantidadRecordatorios");
     const recordatoriosContainer = modal.querySelector("#recordatoriosContainer");
+    const mensajeInput = modal.querySelector("#mensaje");
 
     function toggleSoatConfig() {
       if (!soatConfig || !tipoSel) return;
@@ -84,13 +85,95 @@
         input.classList.add("dv");
         input.name = `recordatorio_${i}`;
         input.placeholder = `Días antes del vencimiento (${i})`;
-        input.min = "1";   
-        input.value = "1"; 
+        input.min = "1";
+        input.value = "1";
         div.appendChild(label);
         div.appendChild(input);
         recordatoriosContainer.appendChild(div);
       }
     }
+
+    // --- AUTOCOMPLETADO PLACEHOLDERS ---
+    const placeholders = {
+      "@nombre": "Nombre del cliente",
+      "@correo": "Correo electrónico",
+      "@celular": "Número de celular",
+      "@empleado": "Empleado asignado",
+      "@fecha": "Fecha de vencimiento del SOAT"
+    };
+
+    let menu = document.createElement("div");
+    menu.id = "placeholderMenu";
+    menu.style.position = "absolute";
+    menu.style.display = "none";
+    menu.style.background = "#fff";
+    menu.style.border = "1px solid #ccc";
+    menu.style.zIndex = "9999";
+    document.body.appendChild(menu);
+
+    function showMenu() {
+      if (!mensajeInput) return;
+      const rect = mensajeInput.getBoundingClientRect();
+
+      menu.innerHTML = "";
+      Object.entries(placeholders).forEach(([key, desc]) => {
+        const item = document.createElement("div");
+        item.textContent = `${key} → ${desc}`;
+        item.dataset.value = key;
+        item.style.padding = "5px 10px";
+        item.style.cursor = "pointer";
+        item.onclick = () => {
+          insertPlaceholder(key);
+          hideMenu();
+        };
+        menu.appendChild(item);
+      });
+
+      menu.style.display = "block";
+      menu.style.left = `${rect.left + window.scrollX}px`;
+      menu.style.top = `${rect.bottom + window.scrollY}px`;
+      menu.style.width = `${rect.width}px`;
+    }
+
+    function hideMenu() {
+      menu.style.display = "none";
+    }
+
+    function insertPlaceholder(placeholder) {
+      if (!mensajeInput) return;
+
+      const start = mensajeInput.selectionStart;
+      const end = mensajeInput.selectionEnd;
+      const text = mensajeInput.value;
+
+      const before = text.slice(0, start);
+      const after = text.slice(end);
+
+      const atIndex = before.lastIndexOf("@");
+
+      if (atIndex !== -1) {
+        const newText = before.slice(0, atIndex) + placeholder + after;
+        mensajeInput.value = newText;
+
+        const pos = atIndex + placeholder.length;
+        mensajeInput.setSelectionRange(pos, pos);
+        mensajeInput.focus();
+      }
+    }
+
+    if (mensajeInput) {
+      mensajeInput.addEventListener("keyup", (e) => {
+        const textBefore = mensajeInput.value.slice(0, mensajeInput.selectionStart);
+
+        if (e.key === "@") {
+          showMenu();
+        } else if (!textBefore.includes("@") || e.key === "Escape") {
+          hideMenu();
+        }
+      });
+    }
+
+    // ----------------------------------
 
     if (btnClose) btnClose.addEventListener("click", closeModal);
     if (tipoSel) tipoSel.addEventListener("change", toggleSoatConfig);
@@ -125,6 +208,16 @@
 
   function handleSave() {
     const data = collectData();
+
+    const valores = {
+      "@nombre": "Cliente Ejemplo",
+      "@correo": "correo@ejemplo.com",
+      "@celular": "3001234567",
+      "@empleado": "Empleado X",
+      "@fecha": "2025-12-31"
+    };
+
+    data.mensaje = data.mensaje.replace(/@nombre|@correo|@celular|@empleado|@fecha/g, match => valores[match] || match);
 
     if (Array.isArray(window.mensajes)) {
       if (currentMode === "editar" && Number.isFinite(currentIndex) && window.mensajes[currentIndex]) {
