@@ -8,6 +8,7 @@ from .models import *
 from .serializers import *
 from django.core.files.storage import FileSystemStorage
 from datetime import datetime
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 class class1(APIView):
@@ -19,22 +20,19 @@ class class1(APIView):
     
     def post(self, request):
         nombre = request.data.get('nombre')
-        cantidad = request.data.get('cantidad')
-        descripcion = request.data.get('descripcion')
-        imagen = request.FILES.get('imagen')
+        usuario = request.data.get('usuario')
+        contraseña = request.data.get('contraseña')
+        celular = request.FILES.get('celular')
 
-        if not nombre or not cantidad or not descripcion:
+        if not nombre  or not usuario or not contraseña or not celular:
             return JsonResponse({"Estado": "Error", "Mensaje": "Todos los campos tiene  que estar llenos"}, status=HTTPStatus.BAD_REQUEST)
-
-        if not imagen:
-            return JsonResponse({"Estado": "Error", "Mensaje": "Tiene que haber una imagen"}, status=HTTPStatus.BAD_REQUEST)
 
         try:
             nuevo = Usuario.objects.create(
                                                 nombre=nombre,
-                                                cantidad=cantidad,
-                                                descripcion=descripcion,
-                                                imagen=imagen
+                                                usuario=usuario,
+                                                contraseña=contraseña,
+                                                celular=celular
             )
             return JsonResponse({"Estado": "Ok", "Mensaje": "Registro creado correctamente"})
         except Exception as e:
@@ -42,31 +40,35 @@ class class1(APIView):
 
 class class2(APIView):
 
+    def get(self,request,id):
+        try:
+            data=Usuario.objects.get(id=id)
+            serializer=UsuarioSerializer(data, context={'request': request})
+            return JsonResponse ({"data":serializer.data})
+        except Usuario.DoesNotExist:
+            return JsonResponse({"Estado": "Error", "Mensaje": "Usuario no encontrado"}, status=HTTPStatus.BAD_REQUEST)
+
     def put(self,request,id):
         nombre = request.data.get('nombre')
-        cantidad = request.data.get('cantidad')
-        descripcion = request.data.get('descripcion')
-        imagen = request.FILES.get('imagen')
+        usuario = request.data.get('usuario')
+        contraseña = request.data.get('contraseña')
+        celular = request.FILES.get('celular')
         try:
-            producto = Usuario.objects.get(id=id)
+            User = Usuario.objects.get(id=id)
         except:
             raise Http404("Producto no encontrado")
         
-        if not nombre or not cantidad or not descripcion:
+        if not nombre  or not usuario or not contraseña or not celular:
             return JsonResponse({"Estado": "Error", "Mensaje": "Todos los campos tiene  que estar llenos"}, status=HTTPStatus.BAD_REQUEST)
         
         
-        producto.nombre=nombre
-        producto.cantidad=cantidad
-        producto.descripcion=descripcion
-        
-        if imagen:
-            if producto.imagen:
-                producto.imagen.delete(save=False)
-            producto.imagen = imagen
+        User.nombre=nombre
+        User.usuario=usuario
+        User.contraseña=contraseña
+        User.celular=celular
         
         try:
-            producto.save()
+            User.save()
             return JsonResponse({"Estado":"Ok","Mensaje":"Se modifico el elemento correctamente"},
                 status=HTTPStatus.OK)
         except Usuario.DoesNotExist:
