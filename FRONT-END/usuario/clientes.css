@@ -192,3 +192,7 @@ nav a:hover {
 .tabla-clientes .id{
     width: 7%;
 }
+
+.tabla-clientes .correo{
+    width: 12%;
+}
