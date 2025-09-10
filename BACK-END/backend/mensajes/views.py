@@ -1,11 +1,7 @@
-from rest_framework.views import APIView
-from django.http import JsonResponse, Http404
-from http import HTTPStatus
-from django.contrib.auth.models import User
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import get_object_or_404
+from .models import Mensaje, RecordatorioSOAT
 
-
-class class1(APIView):
-    pass
-
-class class2(APIView):
-    pass
+#Views
